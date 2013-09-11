@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="442" y="-123"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - Financial Algebra-->
         <scene sceneID="65P-Az-zfV">
             <objects>
                 <tableViewController id="NYY-bP-1KJ" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="NYY-bP-1KJ" id="zLh-do-HnJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lav-JB-Rq6"/>
+                    <navigationItem key="navigationItem" title="Financial Algebra" id="lav-JB-Rq6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKt-A6-ASs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,9 +92,9 @@
         <!--Results View Controller-->
         <scene sceneID="mbp-Se-Vhu">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="nO6-nK-8au" userLabel="Results View Controller" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="nO6-nK-8au" userLabel="Results View Controller" customClass="FAResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="joz-Kx-RYt">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Results" translatesAutoresizingMaskIntoConstraints="NO" id="STk-Z0-eTe">
@@ -105,7 +105,16 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YT-ov-rq3">
                                 <items>
                                     <navigationItem id="62N-0L-dgY">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="5FI-74-gJt"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="5FI-74-gJt">
+                                            <connections>
+                                                <action selector="backButton:" destination="nO6-nK-8au" id="Zxd-Rk-Se6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="mMp-cc-tEV">
+                                            <connections>
+                                                <action selector="actionButton:" destination="nO6-nK-8au" id="eWy-9n-4Ko"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -123,7 +132,11 @@
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="_textView" destination="STk-Z0-eTe" id="HFz-mh-W1q"/>
+                        <outlet property="textView" destination="STk-Z0-eTe" id="4ZK-cE-zjj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVu-Ir-pQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,7 +145,7 @@
         <!--Simple Interest View Controller-->
         <scene sceneID="w2T-Qa-K2V">
             <objects>
-                <viewController id="Z8w-uR-OBZ" userLabel="Simple Interest View Controller" sceneMemberID="viewController">
+                <viewController id="Z8w-uR-OBZ" userLabel="Simple Interest View Controller" customClass="FASimpleInterestViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BWo-Pt-ZLv">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,7 +155,7 @@
                                     <constraint firstAttribute="width" constant="97" id="Edx-mD-NCG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Years" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6db-Uw-hzh">
                                 <constraints>
@@ -152,14 +165,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Percent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-PA-9bF">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-PA-9bF">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JO2-9D-6lj">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O10-zt-exj">
                                 <constraints>
@@ -174,27 +187,50 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nO6-nK-8au" kind="modal" id="GbJ-xm-1gn"/>
+                                    <action selector="calculate:" destination="Z8w-uR-OBZ" eventType="touchUpInside" id="sBJ-Pt-71t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qat-I3-ZsB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="Eod-t9-gh4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br6-mw-obG">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="O10-zt-exj" firstAttribute="centerX" secondItem="JO2-9D-6lj" secondAttribute="centerX" type="default" id="2lb-6Z-3Xu"/>
                             <constraint firstAttribute="bottom" secondItem="O10-zt-exj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="6SW-Dy-7Co"/>
                             <constraint firstItem="6db-Uw-hzh" firstAttribute="top" secondItem="BWo-Pt-ZLv" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7g7-jv-rm1"/>
+                            <constraint firstItem="br6-mw-obG" firstAttribute="centerX" secondItem="O10-zt-exj" secondAttribute="centerX" type="default" id="EUv-2Z-v3t"/>
+                            <constraint firstItem="br6-mw-obG" firstAttribute="leading" secondItem="JO2-9D-6lj" secondAttribute="leading" type="default" id="MId-0Z-sGh"/>
                             <constraint firstItem="6db-Uw-hzh" firstAttribute="centerX" secondItem="SN0-6y-5KR" secondAttribute="centerX" type="default" id="Ocm-jf-3gt"/>
+                            <constraint firstItem="br6-mw-obG" firstAttribute="trailing" secondItem="JO2-9D-6lj" secondAttribute="trailing" type="default" id="Pqo-JD-dGF"/>
                             <constraint firstItem="jUV-PA-9bF" firstAttribute="leading" secondItem="BWo-Pt-ZLv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Q3G-G6-fAe"/>
                             <constraint firstItem="SN0-6y-5KR" firstAttribute="centerX" secondItem="jUV-PA-9bF" secondAttribute="centerX" type="default" id="Upd-ss-FRD"/>
                             <constraint firstItem="JO2-9D-6lj" firstAttribute="top" secondItem="jUV-PA-9bF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WE0-m7-ZNc"/>
                             <constraint firstItem="JO2-9D-6lj" firstAttribute="trailing" secondItem="SN0-6y-5KR" secondAttribute="trailing" type="default" id="WjO-sG-bZE"/>
                             <constraint firstItem="jUV-PA-9bF" firstAttribute="top" secondItem="SN0-6y-5KR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aeJ-t1-4uQ"/>
                             <constraint firstItem="SN0-6y-5KR" firstAttribute="top" secondItem="6db-Uw-hzh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bcT-Yh-LqI"/>
+                            <constraint firstItem="Qat-I3-ZsB" firstAttribute="centerX" secondItem="JO2-9D-6lj" secondAttribute="centerX" type="default" id="i3o-SX-6xb"/>
                             <constraint firstItem="JO2-9D-6lj" firstAttribute="leading" secondItem="SN0-6y-5KR" secondAttribute="leading" type="default" id="l47-dY-wmb"/>
+                            <constraint firstItem="br6-mw-obG" firstAttribute="top" secondItem="Qat-I3-ZsB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nZ9-Bl-aco"/>
                             <constraint firstAttribute="trailing" secondItem="jUV-PA-9bF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qcJ-CR-y81"/>
+                            <constraint firstItem="Qat-I3-ZsB" firstAttribute="top" secondItem="JO2-9D-6lj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tQb-ue-qf1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hUk-XR-eUU"/>
+                    <connections>
+                        <outlet property="principalField" destination="br6-mw-obG" id="1Fw-mS-cgE"/>
+                        <outlet property="rateField" destination="JO2-9D-6lj" id="unC-dV-Any"/>
+                        <outlet property="yearsField" destination="SN0-6y-5KR" id="rLw-Z0-ckS"/>
+                        <segue destination="nO6-nK-8au" kind="modal" identifier="pushResultsVC" id="zJi-Yh-3Cf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nx-9f-yhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,6 +238,29 @@
         </scene>
     </scenes>
     <classes>
+        <class className="FACalculationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FACalculationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculate:"/>
+            </relationships>
+        </class>
+        <class className="FAResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionButton:"/>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="_textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="FASimpleInterestViewController" superclassName="FACalculationViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FASimpleInterestViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculate:"/>
+                <relationship kind="outlet" name="principalField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="yearsField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
